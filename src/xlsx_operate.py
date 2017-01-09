@@ -59,8 +59,8 @@ def openpyxl_write():
     # They are created when first accessed.
 
     # 获得单个单元的值
-    w1 = ws.cell(row=1, column=1).value
-    w2 = ws.cell(row=1, column=2).value
+    w1 = ws.cell(row=1, column=2).value
+    w2 = ws.cell(row=2, column=2).value
 
     # 访问多个单元
     cell_range = ws['A1':'C2'] # 获得A1 B1 C1 A2 B2 C2 6个单元格

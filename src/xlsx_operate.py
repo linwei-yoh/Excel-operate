@@ -12,6 +12,10 @@ def openpyxl_read():
     wb2 = load_workbook(excel_save)
     print(wb2.get_sheet_names())
 
+    # 取第一张表
+    sheetnames = wb.get_sheet_names()
+    ws = wb.get_sheet_by_name(sheetnames[0])
+
 def openpyxl_write():
     # 创建一个工作簿
     wb = Workbook()
@@ -32,8 +36,16 @@ def openpyxl_write():
     # 当一个sheet有个名字之后，可以以类似处理字典的方式获得sheet
     # ws3 = wb['name test']
 
-    # 显示sheet名
+    # 显示sheet名列表
     # print(wb.sheetnames) # ['Sheet2', 'New Title', 'Sheet1']
+
+    # 显示表名，表行数，表列数
+    # print
+    # "Work Sheet Titile:", ws.title
+    # print
+    # "Work Sheet Rows:", ws.get_highest_row()
+    # print
+    # "Work Sheet Cols:", ws.get_highest_column()
 
     # 拷贝单个sheet
     # Only cells and styles can be copied. You cannot copy worksheets between workbooks.
@@ -45,6 +57,10 @@ def openpyxl_write():
     # d = ws.cell(row=1,column=1,value=11) #方法2 行列计数从1开始
     # When a worksheet is created in memory, it contains no cells.
     # They are created when first accessed.
+
+    # 获得单个单元的值
+    w1 = ws.cell(row=1, column=1).value
+    w2 = ws.cell(row=1, column=2).value
 
     # 访问多个单元
     cell_range = ws['A1':'C2'] # 获得A1 B1 C1 A2 B2 C2 6个单元格

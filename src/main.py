@@ -5,8 +5,8 @@ import xlwt
 
 # xlrd xlwd 用来处理老式的xls类型
 # 但 此测试中对于xlsx类型也能读
-old_excel_path = '../test-old.xls'
-new_excel_path = '../test-new.xlsx'
+old_excel_path = '../xls/test-old.xls'
+new_excel_path = '../xls/test-new.xlsx'
 
 
 def xlrd_test():

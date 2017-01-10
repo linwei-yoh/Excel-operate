@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from openpyxl import Workbook,load_workbook
-
+from openpyxl import Workbook, load_workbook
 
 excel_write = '../xlsx/target.xlsx'
 excel_save = '../xlsx/save.xlsx'
@@ -21,11 +20,17 @@ def openpyxl_read():
     if v1 == None:
         print('v1 is None')
     else:
-        v1 == v1.strip()
-        print('v1 为空白')
+        if isinstance(v1, str):
+            v1 == v1.strip()
+        print('v1:', v1)
     v2 = ws['B2'].value
-    print(v2)
-    print(ws['D5'].value)
+    print('v2:', v2)
+
+    v3 = ws[1]
+    print('v3', v3)
+    v3_val = [item.value for item in v3]
+    print('v3_val:', v3_val)
+
 
 def openpyxl_write():
     # 创建一个工作簿
@@ -64,7 +69,7 @@ def openpyxl_write():
     # target = wb.copy_worksheet(source)
 
     # 访问单个单元
-    ws['A2'] = 17 # 方法1
+    ws['A2'] = 17  # 方法1
     # d = ws.cell(row=1,column=1,value=11) #方法2 行列计数从1开始
     # When a worksheet is created in memory, it contains no cells.
     # They are created when first accessed.
@@ -74,14 +79,14 @@ def openpyxl_write():
     w2 = ws.cell(row=2, column=2).value
 
     # 访问多个单元
-    cell_range = ws['A1':'C2'] # 获得A1 B1 C1 A2 B2 C2 6个单元格
+    cell_range = ws['A1':'C2']  # 获得A1 B1 C1 A2 B2 C2 6个单元格
 
     # 在访问一个单元或者一个区域时会创建一个从A1到当前访问最大距离的区域
     # 之后对行列访问时，是在范围创建区域内的行列内容，而不是无限范围。
-    colC = ws['C'] # 获得C列所有被创建出来的单元格
-    col_range = ws['C:D'] # 获得C D两列被创建出来的单元格
-    row10 = ws[10]        # 获得第10行被创建出来的单元格
-    row_range = ws[5:10] # 获得5-10行被创建的单元格
+    colC = ws['C']  # 获得C列所有被创建出来的单元格
+    col_range = ws['C:D']  # 获得C D两列被创建出来的单元格
+    row10 = ws[10]  # 获得第10行被创建出来的单元格
+    row_range = ws[5:10]  # 获得5-10行被创建的单元格
     # ws.rows # 行访问
     # ws.columns # 列访问
 

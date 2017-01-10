@@ -22,7 +22,7 @@ def openpyxl_read():
         print('v1 is None')
     else:
         v1 == v1.strip()
-        print('v1 is empty')
+        print('v1 为空白')
     v2 = ws['B2'].value
     print(v2)
     print(ws['D5'].value)

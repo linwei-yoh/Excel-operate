@@ -10,11 +10,22 @@ excel_save = '../xlsx/save.xlsx'
 
 def openpyxl_read():
     wb2 = load_workbook(excel_save)
-    print(wb2.get_sheet_names())
+    print('sheet名为:', wb2.get_sheet_names())
 
     # 取第一张表
-    sheetnames = wb.get_sheet_names()
-    ws = wb.get_sheet_by_name(sheetnames[0])
+    sheetnames = wb2.get_sheet_names()
+    ws = wb2.get_sheet_by_name(sheetnames[0])
+    print('已获得sheet')
+
+    v1 = ws.cell(row=1, column=2).value
+    if v1 == None:
+        print('v1 is None')
+    else:
+        v1 == v1.strip()
+        print('v1 is empty')
+    v2 = ws['B2'].value
+    print(v2)
+    print(ws['D5'].value)
 
 def openpyxl_write():
     # 创建一个工作簿
@@ -79,4 +90,4 @@ def openpyxl_write():
 
 
 if __name__ == '__main__':
-    openpyxl_write()
+    openpyxl_read()
